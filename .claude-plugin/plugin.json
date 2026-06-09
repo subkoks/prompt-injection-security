@@ -1,0 +1,20 @@
+{
+  "name": "prompt-injection-security",
+  "version": "0.1.0",
+  "description": "Prompt-injection defense for AI agent workflows: skeptical-reading discipline, on-demand injection audits, and a read-only auditor agent.",
+  "author": "blackterminal",
+  "homepage": "https://github.com/subkoks/prompt-injection-security",
+  "license": "MIT",
+  "category": "security",
+  "tags": [
+    "security",
+    "prompt-injection",
+    "agent-safety",
+    "skill",
+    "guardrails",
+    "mcp-security",
+    "blackterminal"
+  ],
+  "skills": ["./skills/prompt-injection-security", "./skills/injection-audit"],
+  "agents": ["./agents/injection-auditor.md"]
+}
