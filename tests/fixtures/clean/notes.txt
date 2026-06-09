@@ -1,0 +1,11 @@
+Meeting notes, Tuesday
+
+We should not ignore feedback from earlier reviews; the prior discussion
+covered most of it. The instructions for the deploy runbook live in the
+wiki. Curl is fine for fetching the status endpoint; pipe the JSON into jq
+for readability.
+
+Action items:
+- Update the runbook wording
+- Ask the platform team about rate limits
+- Review the developer mode flag in the settings page

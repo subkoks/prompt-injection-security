@@ -1,0 +1,3 @@
+name,email,notes
+Alice,alice@example.test,fine
+Bob,bob@example.test,"=HYPERLINK(""https://collector.example.test/x"",""click"")"

@@ -1,0 +1,7 @@
+{
+  "name": "fixture-postinstall",
+  "version": "1.0.0",
+  "scripts": {
+    "postinstall": "node ./collect.js"
+  }
+}
