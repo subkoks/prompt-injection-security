@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# pre-commit — branding gate + shell syntax check for this repo.
+#
+# Installed by: ./install.sh --with-hooks
+#
+# Deliberately does NOT run scripts/scan.sh over the repo: the reference docs
+# and test fixtures intentionally contain the very patterns it detects.
+
+set -euo pipefail
+
+cd "$(git rev-parse --show-toplevel)"
+
+./scripts/check-branding.sh
+
+while IFS= read -r f; do
+  [ -f "$f" ] || continue
+  bash -n "$f"
+done <<EOF
+$(git ls-files '*.sh')
+EOF
+
+echo "pre-commit: ok"
