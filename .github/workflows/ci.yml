@@ -1,0 +1,54 @@
+name: CI
+
+# Deliberately not pull_request_target: this repo's docs and fixtures contain
+# injection-pattern text; never give untrusted PR content elevated permissions.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.0
+      - name: shellcheck
+        run: git ls-files '*.sh' 'hooks/pre-commit' | xargs shellcheck
+      - name: bash syntax
+        run: git ls-files '*.sh' 'hooks/pre-commit' | xargs -n1 bash -n
+      - name: bash 3.2 portability guard
+        # CI runners ship bash 5; statically reject constructs that break
+        # macOS system bash 3.2.
+        run: |
+          if git ls-files '*.sh' 'hooks/pre-commit' | xargs grep -nE 'mapfile|readarray|declare -A|\&>>'; then
+            echo "bash >3.2 construct found"
+            exit 1
+          fi
+          echo "no bash >3.2 constructs"
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.0
+      - name: scanner test suite
+        # Never run scan.sh over the whole repo here: reference docs and
+        # fixtures intentionally contain the patterns it detects.
+        run: ./tests/run-tests.sh
+
+  branding:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.0
+      - name: no stale upstream branding
+        run: ./scripts/check-branding.sh
+      - name: no literal hidden Unicode
+        run: |
+          if git ls-files -z | xargs -0 perl -CSD -ne 'print "$ARGV:$.\n" if /[\x{200B}-\x{200D}\x{FEFF}\x{2060}\x{E0000}-\x{E007F}]/' | grep .; then
+            echo "literal hidden Unicode found in tracked files"
+            exit 1
+          fi
+          echo "no hidden Unicode in tracked files"
