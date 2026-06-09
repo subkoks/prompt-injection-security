@@ -10,7 +10,7 @@
 #   ./install.sh --with-hooks also install the pre-commit hook in THIS repo
 #   ./install.sh --uninstall  remove the symlinks this script created
 #
-# Idempotent. macOS bash 3.2-safe (no mapfile / associative arrays).
+# Idempotent. Safe on macOS system bash 3.2 (no bash-4-only builtins).
 
 set -euo pipefail
 

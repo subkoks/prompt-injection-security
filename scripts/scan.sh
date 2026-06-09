@@ -5,7 +5,7 @@
 # Not a substitute for the full injection-auditor subagent, but useful
 # in CI / pre-commit hooks to catch low-hanging fruit fast.
 #
-# Portable to macOS system bash 3.2 (no mapfile / readarray / assoc arrays).
+# Portable to macOS system bash 3.2 (no bash-4-only builtins).
 #
 # Usage:
 #   ./scan.sh <file-or-directory>
