@@ -156,9 +156,10 @@ else
     fi
   done
   FIND_ARGS+=(\))
-  while IFS= read -r f; do
+  # -print0 / read -d '': filenames with newlines must not evade the scan
+  while IFS= read -r -d '' f; do
     scan_file "$f"
-  done < <(find "${FIND_ARGS[@]}" 2>/dev/null)
+  done < <(find "${FIND_ARGS[@]}" -print0 2>/dev/null)
 fi
 
 echo "---"

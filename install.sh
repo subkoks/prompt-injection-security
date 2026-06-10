@@ -48,8 +48,12 @@ link() {
   local target="$1" linkpath="$2"
   if [ "$UNINSTALL" -eq 1 ]; then
     if [ -L "$linkpath" ]; then
-      [ "$DRY" -eq 1 ] && { echo "  rm   $linkpath"; return; }
-      rm -f "$linkpath"; echo "  rm   $linkpath"
+      if [ "$(readlink "$linkpath")" = "$target" ]; then
+        [ "$DRY" -eq 1 ] && { echo "  rm   $linkpath"; return; }
+        rm -f "$linkpath"; echo "  rm   $linkpath"
+      else
+        skip "$linkpath (symlink points elsewhere, not ours — leaving it)"
+      fi
     fi
     return
   fi
