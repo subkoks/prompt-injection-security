@@ -58,7 +58,9 @@ branding-gate scoping.
 - `LICENSE` carries both copyright lines: `Ingus Liepins (black.terminal)`
   and `Portions derived from BridgeWard, Copyright (c) 2026 BridgeMind`.
 - One canonical attribution sentence appears in `README.md` and
-  `CHANGELOG.md`. The branding gate allows it **only** in those two files.
+  `CHANGELOG.md`. The branding gate allows that sentence **only** in those
+  two files; upstream names otherwise appear only in `LICENSE`, this handoff,
+  the migration plan, and the gate script itself.
 - The skill reference-document bodies are intentionally ported (and licensed);
   branding was swept from them. `BLACKTERMINAL_MIGRATION_PLAN.md` records the
   full port-vs-rewrite decision per file.

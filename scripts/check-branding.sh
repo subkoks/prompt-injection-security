@@ -3,9 +3,10 @@
 # allowed locations. Used by CI, the pre-commit hook, and healthcheck.sh.
 #
 # Allowed: LICENSE (attribution lives there), this script (the regex below),
-# BLACKTERMINAL_MIGRATION_PLAN.md (the audit necessarily names upstream),
-# tests/fixtures (defense in depth), and the single canonical attribution
-# sentence — in README.md and CHANGELOG.md only.
+# the build/handoff meta-docs that necessarily describe the derivation
+# (BLACKTERMINAL_MIGRATION_PLAN.md, FINAL_HANDOFF.md), tests/fixtures
+# (defense in depth), and the single canonical attribution sentence — in
+# README.md and CHANGELOG.md only.
 #
 # Exit codes: 0 clean, 1 stale branding found.
 
@@ -22,6 +23,7 @@ hits=$(grep -rniE 'bridgemind|bridge-mind|bridgeward' . \
   --exclude=LICENSE \
   --exclude=check-branding.sh \
   --exclude=BLACKTERMINAL_MIGRATION_PLAN.md \
+  --exclude=FINAL_HANDOFF.md \
   | grep -vE "$ALLOWED_LINE" || true)
 
 if [ -n "$hits" ]; then

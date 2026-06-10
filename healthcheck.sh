@@ -79,7 +79,10 @@ check_link() { # check_link <linkpath>
     fail "exists but is not a symlink: $lp"
     return
   fi
-  resolved="$(cd -P "$(dirname "$lp")" && cd -P "$(readlink "$lp")" 2>/dev/null && pwd || true)"
+  resolved=""
+  if resolved="$(cd -P "$(dirname "$lp")" 2>/dev/null && cd -P "$(readlink "$lp")" 2>/dev/null && pwd)"; then
+    :
+  fi
   case "$resolved" in
     "$REPO"*|"$HOME/.cursor/skills"*) pass "link: $lp" ;;
     *) fail "link resolves outside this repo: $lp -> $resolved" ;;
