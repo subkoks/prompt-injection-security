@@ -6,17 +6,19 @@ All notable changes to prompt-injection-security.
 
 ### Initial release
 
-- `prompt-injection-security` skill — skeptical-reading discipline
-  auto-loaded for any agent ingesting untrusted content, with seven reference
-  documents: threat taxonomy, red-flag pattern catalog, case studies, trust
-  labels, per-tool defenses, refusal templates, and the 10-question checklist
-- `injection-audit` skill — slash-command audit for files, directories, URLs,
-  and MCP servers
-- `injection-auditor` agent — read-only auditor subagent
+- `prompt-injection-security` skill — the blackterminal skeptical-reading
+  discipline, activated automatically when an agent reads untrusted content;
+  ships seven reference documents (threat taxonomy, red-flag patterns, case
+  studies, trust labels, per-tool defenses, refusal templates, checklist)
+- `injection-audit` skill — on-demand audit command covering file, directory,
+  URL, and MCP-server targets
+- `injection-auditor` agent — deep-audit subagent with mutation tools
+  withheld and shell limited to inspection
 - `scripts/scan.sh` — offline scanner, portable to macOS system bash 3.2,
   with working zero-width and Unicode tag-block detection
-- Test harness with committed fixtures per detection category and
-  runtime-generated hidden-Unicode cases (`tests/run-tests.sh`)
+- Test coverage for every scanner check (`tests/run-tests.sh`): committed
+  fixtures for visible patterns, runtime-generated cases for invisible
+  Unicode payloads and hostile filenames
 - Symlink installer for Claude Code, Cursor, and Windsurf (`install.sh`),
   plus `update.sh`, `healthcheck.sh`, and git helper scripts
 - CI: shellcheck, bash 3.2 portability guard, scanner tests, branding gate,

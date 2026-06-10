@@ -39,10 +39,14 @@ expect_exit "nonexistent target -> usage error"      2 "$SCAN" "$FIXTURES/does-n
 
 # --- dirty fixtures: one per detection category ---
 expect_exit "override phrase flagged"                1 "$SCAN" "$FIXTURES/dirty/override.md"
+expect_exit "role-coercion phrase flagged"           1 "$SCAN" "$FIXTURES/dirty/role-coercion.md"
+expect_exit "authority impersonation flagged"        1 "$SCAN" "$FIXTURES/dirty/authority.md"
 expect_exit "fake chat-format tokens flagged"        1 "$SCAN" "$FIXTURES/dirty/fake-tokens.md"
 expect_exit "hidden CSS flagged"                     1 "$SCAN" "$FIXTURES/dirty/hidden-css.md"
+expect_exit "HTML comment imperative flagged"        1 "$SCAN" "$FIXTURES/dirty/html-comment.md"
 expect_exit "markdown image exfil URL flagged"       1 "$SCAN" "$FIXTURES/dirty/exfil.md"
 expect_exit "curl|sh install pattern flagged"        1 "$SCAN" "$FIXTURES/dirty/curl-sh.md"
+expect_exit "wget|sh install pattern flagged"        1 "$SCAN" "$FIXTURES/dirty/wget-sh.md"
 expect_exit "spreadsheet formula injection flagged"  1 "$SCAN" "$FIXTURES/dirty/formula.txt"
 expect_exit "SSRF metadata URL flagged"              1 "$SCAN" "$FIXTURES/dirty/ssrf.md"
 expect_exit "package.json postinstall flagged"       1 "$SCAN" "$FIXTURES/dirty/package.json"

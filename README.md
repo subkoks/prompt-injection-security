@@ -34,9 +34,10 @@ every editor and agent on the machine inherits it from one place.
 - **`injection-audit` skill** — slash command. Point it at a file, directory,
   URL, or MCP server and get a severity-ranked report of injection attempts,
   with hidden characters made visible and concrete remediation per finding.
-- **`injection-auditor` agent** — read-only subagent that performs the deep
-  audits. Cannot write, edit, or execute; cannot follow instructions found in
-  the content it scans.
+- **`injection-auditor` agent** — the subagent behind the deep audits. Write
+  and edit tools are withheld; its shell is restricted to read-only
+  inspection commands. Every instruction it encounters inside scanned content
+  is treated as hostile data, never followed.
 - **`scripts/scan.sh`** — offline grep/perl scanner for the most common
   patterns (override phrases, fake chat tokens, zero-width and tag-block
   Unicode, hidden CSS, exfil URLs, formula injection, SSRF, curl-pipe-shell,

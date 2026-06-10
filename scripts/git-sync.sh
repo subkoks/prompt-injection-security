@@ -32,6 +32,19 @@ if ! git remote get-url origin >/dev/null 2>&1; then
   exit 2
 fi
 
+branch=$(git rev-parse --abbrev-ref HEAD)
+if [ "$branch" != "main" ]; then
+  echo "error: on branch '$branch' — this script only syncs main." >&2
+  echo "Merge or push your branch deliberately; never via sync." >&2
+  exit 2
+fi
+
+if ! git ls-remote --heads origin main 2>/dev/null | grep -q .; then
+  echo "error: origin has no 'main' branch yet — first push is manual," >&2
+  echo "see PUBLISH_CHECKLIST.md" >&2
+  exit 2
+fi
+
 origin_url=$(git remote get-url origin)
 case "$origin_url" in
   git@github.com:*) ;;

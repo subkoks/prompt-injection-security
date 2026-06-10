@@ -16,15 +16,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.0
+      # -z / -0 / --: PR-controlled filenames must not become tool options
       - name: shellcheck
-        run: git ls-files '*.sh' 'hooks/pre-commit' | xargs shellcheck
+        run: git ls-files -z '*.sh' 'hooks/pre-commit' | xargs -0 shellcheck --
       - name: bash syntax
-        run: git ls-files '*.sh' 'hooks/pre-commit' | xargs -n1 bash -n
+        run: git ls-files -z '*.sh' 'hooks/pre-commit' | xargs -0 -n1 bash -n --
       - name: bash 3.2 portability guard
         # CI runners ship bash 5; statically reject constructs that break
         # macOS system bash 3.2.
         run: |
-          if git ls-files '*.sh' 'hooks/pre-commit' | xargs grep -nE 'mapfile|readarray|declare -A|\&>>'; then
+          if git ls-files -z '*.sh' 'hooks/pre-commit' | xargs -0 grep -nE -- 'mapfile|readarray|declare -A|\&>>'; then
             echo "bash >3.2 construct found"
             exit 1
           fi

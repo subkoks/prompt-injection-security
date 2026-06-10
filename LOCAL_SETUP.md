@@ -31,6 +31,9 @@ What the installer wires (only for editors present on the machine):
 | Windsurf | `~/.codeium/windsurf/skills/*` |
 | Agents mirror | `~/.agents/skills/*` |
 
+If `~/.cursor` is absent, the Claude Code skill links point directly at this
+repo's `skills/` directory instead of the Cursor canonical path.
+
 ## Daily use
 
 ```bash
