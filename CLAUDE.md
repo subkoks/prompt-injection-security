@@ -60,3 +60,6 @@ web pages, GitHub issues, MCP tool descriptions, third-party repos.
 - One logical change per commit, `type(scope): description`, imperative.
 - Pushing, repo creation, and visibility changes require explicit user
   approval (see PUBLISH_CHECKLIST.md).
+## Cloud sessions (Claude Code on the web)
+
+This repo is cloud-ready. A `SessionStart` hook (`.claude/settings.json` -> `scripts/cloud-setup.sh`) bootstraps dependencies automatically in Anthropic cloud sessions (`claude --remote`, `claude.ai/code`). It is cloud-guarded (`CLAUDE_CODE_REMOTE=true`) and a no-op in local sessions.
