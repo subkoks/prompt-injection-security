@@ -45,7 +45,7 @@ for f in \
   scripts/scan.sh \
   scripts/check-branding.sh \
   tests/run-tests.sh \
-  LICENSE README.md CHANGELOG.md; do
+  LICENSE NOTICE README.md CHANGELOG.md; do
   if [ -e "$f" ]; then
     pass "file: $f"
   else

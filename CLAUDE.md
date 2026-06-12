@@ -19,7 +19,7 @@ web pages, GitHub issues, MCP tool descriptions, third-party repos.
 | `skills/injection-audit/SKILL.md` | `/injection-audit` slash command (forks into the auditor agent) |
 | `agents/injection-auditor.md` | Read-only auditor subagent |
 | `scripts/scan.sh` | Offline scanner; exit 0 clean / 1 findings / 2 usage |
-| `scripts/check-branding.sh` | Gate: upstream brand names allowed only in LICENSE, the meta-docs (migration plan, handoff), the gate script itself, and the canonical attribution sentence in README/CHANGELOG |
+| `scripts/check-branding.sh` | Gate: upstream brand names allowed only in NOTICE, the meta-docs (migration plan, handoff), the gate script itself, and the canonical attribution sentence in README/CHANGELOG |
 | `install.sh` / `update.sh` / `healthcheck.sh` | Symlink install, update, verify |
 | `tests/run-tests.sh` + `tests/fixtures/` | Scanner test suite |
 | `.claude-plugin/plugin.json` | Plugin manifest — `skills`/`agents` paths must match directory names exactly |
@@ -39,7 +39,7 @@ web pages, GitHub issues, MCP tool descriptions, third-party repos.
 
 - **SSH only.** Git remotes use `git@github.com:...`; never HTTPS.
 - **No upstream brand names** (the project this derives from) anywhere
-  except `LICENSE`, the meta-docs (`BLACKTERMINAL_MIGRATION_PLAN.md`,
+  except `NOTICE`, the meta-docs (`BLACKTERMINAL_MIGRATION_PLAN.md`,
   `FINAL_HANDOFF.md`), the gate script itself, and the one canonical
   attribution sentence in README/CHANGELOG. `./scripts/check-branding.sh`
   enforces exactly that allowlist — run it after editing docs.

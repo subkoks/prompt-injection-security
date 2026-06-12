@@ -55,11 +55,12 @@ branding-gate scoping.
 
 ## Deliberately preserved (license obligation)
 
-- `LICENSE` carries both copyright lines: `Ingus Liepins (black.terminal)`
-  and `Portions derived from BridgeWard, Copyright (c) 2026 BridgeMind`.
+- `LICENSE` is pure standard MIT (`Ingus Liepins (black.terminal)`); the
+  `Portions derived from BridgeWard, Copyright (c) 2026 BridgeMind`
+  attribution lives in `NOTICE` so GitHub license detection reads MIT.
 - One canonical attribution sentence appears in `README.md` and
   `CHANGELOG.md`. The branding gate allows that sentence **only** in those
-  two files; upstream names otherwise appear only in `LICENSE`, this handoff,
+  two files; upstream names otherwise appear only in `NOTICE`, this handoff,
   the migration plan, and the gate script itself.
 - The skill reference-document bodies are intentionally ported (and licensed);
   branding was swept from them. `BLACKTERMINAL_MIGRATION_PLAN.md` records the
@@ -67,8 +68,8 @@ branding-gate scoping.
 
 ## Legal / license notes
 
-MIT-to-MIT derivative. Attribution requirements are satisfied by the LICENSE
-copyright lines plus the canonical sentence. No upstream trademark, logo, or
+MIT-to-MIT derivative. Attribution requirements are satisfied by the NOTICE
+file plus the canonical sentence. No upstream trademark, logo, or
 marketing copy was carried over. All brand copy is original.
 
 ## Manual steps still requiring your approval

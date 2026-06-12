@@ -135,7 +135,7 @@ any repo-wide content scan.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT — see [LICENSE](LICENSE). Third-party attribution is in [NOTICE](NOTICE).
 
 Portions of this project are derived from BridgeWard, copyright (c) 2026 BridgeMind, used under the MIT License.
 All other content copyright (c) 2026 Ingus Liepins (black.terminal).

@@ -38,7 +38,7 @@ detection patterns and fresh case studies with evidence behind them.
 - `tests/fixtures/dirty/` intentionally contains injection-pattern text. Keep
   it excluded from any repo-wide content scan, and keep secret-shaped strings
   out of it.
-- Upstream project names appear only in `LICENSE` and the canonical
+- Upstream project names appear only in `NOTICE` and the canonical
   attribution sentence — `./scripts/check-branding.sh` enforces this.
 
 ## Before opening a PR

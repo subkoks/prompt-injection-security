@@ -10,8 +10,8 @@ names the upstream project throughout and is therefore excluded from
 - Upstream: `bridge-mind/BridgeWard` (GitHub), MIT, copyright (c) 2026
   BridgeMind. 53 KB, Shell + Markdown. Audited at depth-1 clone, 2026-06-09.
 - License obligation: preserve the MIT copyright notice for derived
-  portions. Satisfied by the dual copyright line in `LICENSE` and the
-  canonical attribution sentence in `README.md` and `CHANGELOG.md`.
+  portions. Satisfied by the attribution in `NOTICE` and the canonical
+  attribution sentence in `README.md` and `CHANGELOG.md`.
 
 ## Audit results
 
@@ -61,5 +61,5 @@ hidden-Unicode gates, templates, CODEOWNERS), `docs/usage.md`, `examples/`,
   by design — never scan the repo wholesale; CI never does.
 - Literal hidden Unicode is banned from the tree (CI gate); invisible test
   payloads are generated at runtime.
-- The branding gate allows upstream names only in `LICENSE`, this file, the
+- The branding gate allows upstream names only in `NOTICE`, this file, the
   gate script itself, and the canonical attribution sentence.
