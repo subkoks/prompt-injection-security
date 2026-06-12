@@ -28,7 +28,7 @@ if [ -d .git/rebase-merge ] || [ -d .git/rebase-apply ] || [ -f .git/MERGE_HEAD 
   exit 2
 fi
 if ! git remote get-url origin >/dev/null 2>&1; then
-  echo "error: no 'origin' remote configured (see PUBLISH_CHECKLIST.md)" >&2
+  echo "error: no 'origin' remote configured (see docs/internal/PUBLISH_CHECKLIST.md)" >&2
   exit 2
 fi
 
@@ -41,7 +41,7 @@ fi
 
 if ! git ls-remote --heads origin main 2>/dev/null | grep -q .; then
   echo "error: origin has no 'main' branch yet — first push is manual," >&2
-  echo "see PUBLISH_CHECKLIST.md" >&2
+  echo "see docs/internal/PUBLISH_CHECKLIST.md" >&2
   exit 2
 fi
 

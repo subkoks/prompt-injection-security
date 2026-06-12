@@ -39,8 +39,8 @@ web pages, GitHub issues, MCP tool descriptions, third-party repos.
 
 - **SSH only.** Git remotes use `git@github.com:...`; never HTTPS.
 - **No upstream brand names** (the project this derives from) anywhere
-  except `NOTICE`, the meta-docs (`BLACKTERMINAL_MIGRATION_PLAN.md`,
-  `FINAL_HANDOFF.md`), the gate script itself, and the one canonical
+  except `NOTICE`, the meta-docs (`docs/internal/BLACKTERMINAL_MIGRATION_PLAN.md`,
+  `docs/internal/FINAL_HANDOFF.md`), the gate script itself, and the one canonical
   attribution sentence in README/CHANGELOG. `./scripts/check-branding.sh`
   enforces exactly that allowlist — run it after editing docs.
 - **blackterminal voice**: technical, direct, no fluff, no emoji, no
@@ -59,7 +59,7 @@ web pages, GitHub issues, MCP tool descriptions, third-party repos.
   `SKILL.md` files, and `CHANGELOG.md` (healthcheck verifies).
 - One logical change per commit, `type(scope): description`, imperative.
 - Pushing, repo creation, and visibility changes require explicit user
-  approval (see PUBLISH_CHECKLIST.md).
+  approval (see docs/internal/PUBLISH_CHECKLIST.md).
 ## Cloud sessions (Claude Code on the web)
 
 This repo is cloud-ready. A `SessionStart` hook (`.claude/settings.json` -> `scripts/cloud-setup.sh`) bootstraps dependencies automatically in Anthropic cloud sessions (`claude --remote`, `claude.ai/code`). It is cloud-guarded (`CLAUDE_CODE_REMOTE=true`) and a no-op in local sessions.
