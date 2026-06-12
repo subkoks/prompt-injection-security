@@ -23,7 +23,7 @@ if git remote get-url origin >/dev/null 2>&1; then
     echo "remote:   $(git remote get-url origin) (no origin/main yet — not pushed)"
   fi
 else
-  echo "remote:   none configured (see PUBLISH_CHECKLIST.md)"
+  echo "remote:   none configured (see docs/internal/PUBLISH_CHECKLIST.md)"
 fi
 
 echo "last:     $(git log -1 --oneline 2>/dev/null || echo 'no commits')"

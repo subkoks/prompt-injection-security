@@ -2,7 +2,7 @@
 # check-branding.sh — fail if stale upstream branding exists outside the
 # allowed locations. Used by CI, the pre-commit hook, and healthcheck.sh.
 #
-# Allowed: LICENSE (attribution lives there), this script (the regex below),
+# Allowed: NOTICE (attribution lives there), this script (the regex below),
 # the build/handoff meta-docs that necessarily describe the derivation
 # (BLACKTERMINAL_MIGRATION_PLAN.md, FINAL_HANDOFF.md), tests/fixtures
 # (defense in depth), and the single canonical attribution sentence — in
@@ -20,7 +20,7 @@ ALLOWED_LINE='^\./(README|CHANGELOG)\.md:.*[Pp]ortions( of this project are)? de
 hits=$(grep -rniE 'bridgemind|bridge-mind|bridgeward' . \
   --exclude-dir=.git \
   --exclude-dir=fixtures \
-  --exclude=LICENSE \
+  --exclude=NOTICE \
   --exclude=check-branding.sh \
   --exclude=BLACKTERMINAL_MIGRATION_PLAN.md \
   --exclude=FINAL_HANDOFF.md \
