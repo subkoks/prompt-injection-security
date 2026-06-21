@@ -3,8 +3,8 @@
 Prompt-injection defense for AI agent workflows, by blackterminal. This repo
 packages a skeptical-reading discipline (auto-loaded skill), an on-demand
 audit command, a read-only auditor subagent, and an offline scanner, and
-symlinks them into every AI editor on the machine (Claude Code, Cursor,
-Windsurf) so one `git pull` updates them all.
+symlinks them into Claude Code and Codex (Cursor/Windsurf retired 2026-06-17)
+so one `git pull` updates them all.
 
 Brand: blackterminal. Author: Ingus Liepins (black.terminal), GitHub
 `subkoks`. Primary use case: defending agents that read untrusted content —
