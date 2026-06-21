@@ -8,7 +8,7 @@ description: >
   suggestions. Use for security review of untrusted content before an agent
   ingests it.
 tools: Read, Glob, Grep, Bash
-model: sonnet
+model: claude-sonnet-4-6
 maxTurns: 30
 effort: high
 memory: user
