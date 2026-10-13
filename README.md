@@ -1,50 +1,17 @@
-# prompt-injection-security
+<h1>
+  <picture>
+    <source media="(max-width: 600px)" srcset="assets/readme/hero-mobile.svg">
+    <img src="assets/readme/hero.svg" width="100%" alt="Prompt injection defense — BLACK.TERMINAL">
+  </picture>
+</h1>
+
+**prompt-injection-security** packages a skeptical-reading discipline, an on-demand audit command, a read-only auditor, and an offline scanner for AI agent workflows.
+
+**[Installation](#installation)** · [Usage](#usage) · [Features](#features) · [Configuration](#configuration) · [Examples](#examples)
 
 [![CI](https://github.com/subkoks/prompt-injection-security/actions/workflows/ci.yml/badge.svg)](https://github.com/subkoks/prompt-injection-security/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux-lightgrey.svg)](#installation)
-
-Prompt-injection defense for AI agent workflows: a skeptical-reading
-discipline your agents load automatically, an on-demand audit command, a
-read-only auditor subagent, and an offline scanner for CI and pre-commit. A
-blackterminal project.
-
-## Why this exists
-
-Every agent in my workflow reads content somebody else wrote: web pages,
-GitHub issues, MCP tool descriptions, third-party repos, search results,
-scraped HTML. Each of those is a channel through which an attacker can hand
-the agent instructions — and an agent with file access, shell access, and
-network access will follow them unless it has been trained not to.
-
-The vendor-side fixes are incomplete by their own admission, and the public
-CVE record (zero-click email exfiltration, rug-pulled MCP tools, invisible
-directives in editor rules files, injection-to-RCE chains in coding agents)
-shows the gap is being exploited in production. What an operator can control
-is the discipline the agent runs under. This repo packages that discipline so
-every editor and agent on the machine inherits it from one place.
-
-## Features
-
-- **`prompt-injection-security` skill** — core skeptical-reading discipline,
-  auto-activated whenever an agent ingests untrusted content. Provenance
-  trust labels, the Lethal Trifecta model, five core rules, red-flag pattern
-  catalog, per-tool defense rules, refusal templates, and a 10-question
-  checklist. Seven reference documents load on demand.
-- **`injection-audit` skill** — slash command. Point it at a file, directory,
-  URL, or MCP server and get a severity-ranked report of injection attempts,
-  with hidden characters made visible and concrete remediation per finding.
-- **`injection-auditor` agent** — the subagent behind the deep audits. Write
-  and edit tools are withheld; its shell is restricted to read-only
-  inspection commands. Every instruction it encounters inside scanned content
-  is treated as hostile data, never followed.
-- **`scripts/scan.sh`** — offline grep/perl scanner for the most common
-  patterns (override phrases, fake chat tokens, zero-width and tag-block
-  Unicode, hidden CSS, exfil URLs, formula injection, SSRF, curl-pipe-shell,
-  postinstall hooks). Exit-code contract for CI and hooks. Runs on stock
-  macOS bash 3.2.
-- **Symlink installer** — one repo wires Claude Code, Cursor, and Windsurf at
-  once; `git pull` updates every editor.
+[![License: MIT](https://img.shields.io/badge/license-MIT-393632?labelColor=1B1A18)](LICENSE)
+[![Platform](https://img.shields.io/badge/platform-macOS%20%7C%20Linux-393632?labelColor=1B1A18)](#installation)
 
 ## Installation
 
@@ -97,6 +64,43 @@ Exit codes: `0` clean, `1` findings, `2` usage error. Wire it into CI or a
 pre-commit hook to catch low-hanging fruit before an agent ever reads the
 content. It is a fast first pass, not a replacement for the full audit.
 
+## Features
+
+- **`prompt-injection-security` skill** — core skeptical-reading discipline,
+  auto-activated whenever an agent ingests untrusted content. Provenance
+  trust labels, the Lethal Trifecta model, five core rules, red-flag pattern
+  catalog, per-tool defense rules, refusal templates, and a 10-question
+  checklist. Seven reference documents load on demand.
+- **`injection-audit` skill** — slash command. Point it at a file, directory,
+  URL, or MCP server and get a severity-ranked report of injection attempts,
+  with hidden characters made visible and concrete remediation per finding.
+- **`injection-auditor` agent** — the subagent behind the deep audits. Write
+  and edit tools are withheld; its shell is restricted to read-only
+  inspection commands. Every instruction it encounters inside scanned content
+  is treated as hostile data, never followed.
+- **`scripts/scan.sh`** — offline grep/perl scanner for the most common
+  patterns (override phrases, fake chat tokens, zero-width and tag-block
+  Unicode, hidden CSS, exfil URLs, formula injection, SSRF, curl-pipe-shell,
+  postinstall hooks). Exit-code contract for CI and hooks. Runs on stock
+  macOS bash 3.2.
+- **Symlink installer** — one repo wires Claude Code, Cursor, and Windsurf at
+  once; `git pull` updates every editor.
+
+## Why this exists
+
+Every agent in my workflow reads content somebody else wrote: web pages,
+GitHub issues, MCP tool descriptions, third-party repos, search results,
+scraped HTML. Each of those is a channel through which an attacker can hand
+the agent instructions — and an agent with file access, shell access, and
+network access will follow them unless it has been trained not to.
+
+The vendor-side fixes are incomplete by their own admission, and the public
+CVE record (zero-click email exfiltration, rug-pulled MCP tools, invisible
+directives in editor rules files, injection-to-RCE chains in coding agents)
+shows the gap is being exploited in production. What an operator can control
+is the discipline the agent runs under. This repo packages that discipline so
+every editor and agent on the machine inherits it from one place.
+
 ## Configuration
 
 There is no config file; behavior is defined by the skill documents.
@@ -139,3 +143,7 @@ MIT — see [LICENSE](LICENSE). Third-party attribution is in [NOTICE](NOTICE).
 
 Portions of this project are derived from BridgeWard, copyright (c) 2026 BridgeMind, used under the MIT License.
 All other content copyright (c) 2026 Ingus Liepins (black.terminal).
+
+---
+
+<img src="assets/readme/dot.svg" width="12" height="12" alt=""> **BLACK.TERMINAL** · [MIT License](LICENSE) · [GitHub](https://github.com/subkoks)
